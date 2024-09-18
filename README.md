@@ -50,9 +50,9 @@ admin.site.register(Bank,Loandetails)
 ```
 
 ## OUTPUT
-![Django_new3](https://github.com/user-attachments/assets/e1cf7ad6-b50b-40a8-8826-a056253fe2fc)
+![Django_ORM_1](https://github.com/user-attachments/assets/6e8d9b9d-3fd2-4b4c-aa54-e49697245b10)
 
-![Django_new2](https://github.com/user-attachments/assets/e8bd342e-6241-4eb9-ad08-3af742eee115)
+![Django_ORM_2](https://github.com/user-attachments/assets/5ff21531-0c62-4dab-9290-508af962d872)
 
 
 ## RESULT
