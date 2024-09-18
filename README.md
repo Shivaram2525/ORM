@@ -43,6 +43,7 @@ admin.site.register(book,bookAdmin)
 ```
 
 ## OUTPUT
+![Django_new3](https://github.com/user-attachments/assets/e1cf7ad6-b50b-40a8-8826-a056253fe2fc)
 
 ![Django_new2](https://github.com/user-attachments/assets/e8bd342e-6241-4eb9-ad08-3af742eee115)
 
