@@ -21,26 +21,28 @@ Execute Django admin and create details for 10 books
 ## PROGRAM
 
 ```
-models.py
+Models.py 
+from django.db import models
+from django.contrib import admin
+# Create your models here.
 
-from django.db import models                                                                                                                      
-from django.contrib import admin                                             
-class book(models.Model):                    				      
-   bookno=models.IntegerField(primary_key=True);                                                      
-   authorname=models.CharField(max_length=50);                                                            
-   price=models.IntegerField(help_text="enter price");                       
-   qty=models.IntegerField();                                                
-   bookname=models.CharField(max_length=50);                                 
-class bookAdmin(admin.ModelAdmin):                                           
-   list_display=("bookno","authorname","price","qty","bookname"); 
+class Bank(models.Model):
+    customer_id = models.IntegerField(primary_key=True)
+    customer_name = models.CharField(max_length=50)
+    account_type = models.CharField(max_length=50)
+    loan_amount = models.DecimalField(max_digits=10, decimal_places=2)  
+    monthly_interest = models.DecimalField(max_digits=5, decimal_places=2)  
+    due_date = models.DateField()
 
-admin.py
+class Loandetails(admin.ModelAdmin):
+    list_display= ('customer_id','customer_name','account_type','loan_amount','monthly_interest','due_date')
 
-from django.contrib import admin                                             
-from .models import book,bookAdmin                                           
-admin.site.register(book,bookAdmin)
+admin.py 
+from django.contrib import admin
+from .models import Bank,Loandetails
 
-```
+# Register your models here.
+admin.site.register(Bank,Loandetails)```
 
 ## OUTPUT
 ![Django_new3](https://github.com/user-attachments/assets/e1cf7ad6-b50b-40a8-8826-a056253fe2fc)
