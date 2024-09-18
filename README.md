@@ -42,7 +42,8 @@ from django.contrib import admin
 from .models import Bank,Loandetails
 
 # Register your models here.
-admin.site.register(Bank,Loandetails)```
+admin.site.register(Bank,Loandetails)
+```
 
 ## OUTPUT
 ![Django_new3](https://github.com/user-attachments/assets/e1cf7ad6-b50b-40a8-8826-a056253fe2fc)
