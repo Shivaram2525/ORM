@@ -1,58 +1,73 @@
-# Ex02 Django ORM Web Application
-## Date: 18.09.2024
+# EX 03 Django ORM Web Application
 
+## Date: 24-09-2024
+# Name: Shivaram M.
+# Reg. No.: 212223040195
 ## AIM
-To develop a Django application to store and retrieve data from a Book database using Object Relational Mapping(ORM).
+To develop a Django application to store and retrieve data from a bank loan database using Object Relational Mapping(ORM).
 
-## Entity Relationship Diagram:
-
-<img width="963" alt="Bank ORM" src="https://github.com/user-attachments/assets/87b846e0-18df-406d-a276-21a83fe6da4d">
 
 ## DESIGN STEPS
-
-### STEP 1:
+## STEP 1:
 Clone the problem from GitHub
 
-### STEP 2:
+## STEP 2:
 Create a new app in Django project
 
-### STEP 3:
+## STEP 3:
 Enter the code for admin.py and models.py
 
-### STEP 4:
-Execute Django admin and create details for 10 books
+## STEP 4:
+Execute Django admin and create details for 10 bank loan records
 
 ## PROGRAM
 
+## Admin.py
+
 ```
-Models.py 
+from django.contrib import admin
+from .models import Loan
+
+@admin.register(Loan)
+class LoanAdmin(admin.ModelAdmin):
+    list_display = ('loan_id', 'customer_name', 'amount', 'interest_rate', 'duration_months', 'start_date')
+    search_fields = ('customer_name', 'loan_id')
+```
+
+## Models.py
+
+```
 from django.db import models
-from django.contrib import admin
-# Create your models here.
 
-class Bank(models.Model):
-    customer_id = models.IntegerField(primary_key=True)
-    customer_name = models.CharField(max_length=50)
-    account_type = models.CharField(max_length=50)
-    loan_amount = models.DecimalField(max_digits=10, decimal_places=2)  
-    monthly_interest = models.DecimalField(max_digits=5, decimal_places=2)  
-    due_date = models.DateField()
+class Loan(models.Model):
+    loan_id = models.AutoField(primary_key=True)  # Auto incrementing primary key
+    customer_name = models.CharField(max_length=100)
+    address = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=15)
+    email = models.EmailField()
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    interest_rate = models.FloatField()
+    duration_months = models.PositiveIntegerField()
+    start_date = models.DateField()
 
-class Loandetails(admin.ModelAdmin):
-    list_display= ('customer_id','customer_name','account_type','loan_amount','monthly_interest','due_date')
-
-admin.py 
-from django.contrib import admin
-from .models import Bank,Loandetails
-
-# Register your models here.
-admin.site.register(Bank,Loandetails)
+    def __str__(self):
+        return f"Loan ID: {self.loan_id} - {self.customer_name}"
 ```
+
+## SAMPLE ER DIAGRAM:
+
+![Web_Exp_2(3)](https://github.com/user-attachments/assets/61d6937c-4d6e-4622-94b6-dd81f0610ec8)
+
+
 
 ## OUTPUT
-![Django_ORM_1](https://github.com/user-attachments/assets/6e8d9b9d-3fd2-4b4c-aa54-e49697245b10)
 
-![Django_ORM_2](https://github.com/user-attachments/assets/5ff21531-0c62-4dab-9290-508af962d872)
+![Web_Exp_2(1)](https://github.com/user-attachments/assets/78cbaed8-8f3a-40ab-bd2e-5bc415993c41)
+
+
+
+![Web_Exp_2(2)](https://github.com/user-attachments/assets/41c1d0fa-6f66-4d02-a934-d820318a1e05)
+
 
 
 ## RESULT
